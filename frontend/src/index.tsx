@@ -8,7 +8,6 @@ if (!rootElement) {
   throw new Error("Failed to find the root element");
 }
 
-// Use React 18's createRoot API
 const root = ReactDOM.createRoot(rootElement);
 
 root.render(
