@@ -1,13 +1,22 @@
-import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
-
 import * as dotenv from 'dotenv';
 
 dotenv.config();
 
+import { NestFactory } from '@nestjs/core';
+import { AppModule } from './app.module';
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  app.enableCors();
-  await app.listen(process.env.PORT ?? 8080);
+
+  const config = new DocumentBuilder()
+    .setTitle('Countries API')
+    .setDescription('API to fetch countries and their details')
+    .setVersion('1.0')
+    .build();
+  const document = SwaggerModule.createDocument(app, config);
+  SwaggerModule.setup('api', app, document);
+
+  await app.listen(8080);
 }
 bootstrap();
