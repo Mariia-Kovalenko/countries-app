@@ -34,12 +34,15 @@ Here is the list of backend endpoints and their purposes:
 
 2. **`GET /countries/:countryCode`**
     Fetches detailed information about a specific country identified by its `countryCode`.
+    
     Returns:
      - Official name.
      - Common name.
      - Flag URL.
      - Population counts over time.
      - Border countries (if any).
+3. **`GET /api`**
+    - View Backend Swagger file to test endpoints
 
 ### Scripts:
  **Development Mode**: `npm run start:dev` (watches for changes).
@@ -109,6 +112,7 @@ The frontend runs on **port 3000** by default, and environment variables are sto
     ```bash
     npm start
     ```
+
 ## Ports
 
 - **Backend**: The backend server runs on [http://localhost:8080](http://localhost:8080).
